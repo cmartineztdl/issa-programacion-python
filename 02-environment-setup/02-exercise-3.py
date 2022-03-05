@@ -1,3 +1,12 @@
+# 02-exercise-3
+# 1. Open the “base_code.py” file and run it to get a working base code. Pay
+# attention to:
+#   - How to open a file.
+#   - How to go through each line of the file.
+#   - How to convert a string into a number.
+# 2. Extend the base code to get the total sum of revenue.
+# 3. Extend your code to get the percentage of revenue vs income.
+
 import csv
 
 
