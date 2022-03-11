@@ -5,6 +5,7 @@
 * **XX-section-name**: sección de curso con el temario y los ejercicios resueltos
 * **datasets**: conjunto de ficheros de datos
 * **example**: ejemplos sencillos
+* **exercises**: ejercicios que no forman parte del temario
 * **resources**: recursos adicionales
   * **base_code.py**: programa base con lectura de ficheros CSV
   * **python-cheatsheet.pdf**: *Chuleta* de Python
