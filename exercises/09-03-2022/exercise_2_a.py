@@ -1,4 +1,4 @@
-total_seconds = 4001*24
+total_seconds = 96523
 
 seconds_in_a_minute = 60
 seconds_in_an_hour = seconds_in_a_minute * 60
