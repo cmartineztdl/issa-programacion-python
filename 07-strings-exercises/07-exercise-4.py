@@ -1,15 +1,14 @@
-# Looking at “tripadvisor_museum_world.csv”, evaluate a way
-# to check if the museum is from the USA.
-# Discuss the weaknesses of your solution and implement a
-# Python program that prints the country for each museum.
+# Using "tripadvisor_museum_world.csv", create a Python
+# program that gets the number of museums for each number
+# of features ("FeatureCount" column)
 
 import csv
 
 
-def string_to_float(v):
+def string_to_int(v):
     try:
         v = v.replace(',', '')
-        return float(v)
+        return int(v)
     except Exception:
         return 0
 
@@ -18,16 +17,27 @@ def string_to_float(v):
 input_file = open('datasets/tripadvisor_museum_world.csv', encoding='utf-8')
 # Create a "reader" to go through the data
 input_reader = csv.DictReader(input_file)
+lines = list(input_reader)
 
-for line_data in input_reader:  # Loop to go through the data
-    address = line_data["Address"]
-    name = line_data["MuseumName"]
+max_feature_count = 0
 
-    list = address.split(",") # Split address with ","
-    lastListElement = list[len(list) - 1].strip() # Get the last element
-    countryCode = lastListElement[0:2] # Get the 2 fist chars
+for line_data in lines:  # Loop to go through the data
+    feature_count = string_to_int(line_data["FeatureCount"])
 
-    if countryCode == countryCode.upper(): # Is EEUU
-        print("(EEUU " + countryCode + ") " + address + " - " + name)
-    else: ## Isn't EEUU
-        print("(" + lastListElement + ") " + address + " - " + name)
+    if feature_count > max_feature_count:
+        max_feature_count = feature_count
+
+print("Max feature count:", max_feature_count)
+
+count = [0] * (max_feature_count + 1)
+
+for line_data in lines:  # Loop to go through the data
+    feature_count = string_to_int(line_data["FeatureCount"])
+
+    count[feature_count] = count[feature_count] + 1
+
+print(count)
+
+for i in range(len(count)):
+    if count[i] > 0:
+        print("Museums with", i, "feature count:", count[i])
